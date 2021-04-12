@@ -37,7 +37,6 @@ namespace VoiceModFleckExercise.Factories
 			{
 				var exMessage = $"Error trying to connect: {e}";
 				FleckLog.Error(exMessage);
-				Console.WriteLine(exMessage);
 				throw;
 			}
 		}

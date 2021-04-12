@@ -6,19 +6,23 @@ using System.Text.RegularExpressions;
 
 using VoiceModFleckExercise.Factories;
 using VoiceModFleckExercise.Models;
+using VoiceModFleckExercise.Wrappers;
 
 namespace VoiceModFleckExercise.Services
 {
 	public class ClientService : IClientService
 	{
 		private readonly IClientFactory clientFactory;
+		private readonly IConsoleWrapper consoleWrapper;
+
 		private readonly Regex usernamePattern = new Regex("^[a-zA-Z0-9]*$");
 
 		private ClientModel Client { get; set; }
 
-		public ClientService(IClientFactory clientFactory)
+		public ClientService(IClientFactory clientFactory, IConsoleWrapper consoleWrapper)
 		{
 			this.clientFactory = clientFactory;
+			this.consoleWrapper = consoleWrapper;
 		}
 
 		public void CreateClient(int port)
@@ -26,13 +30,13 @@ namespace VoiceModFleckExercise.Services
 			string username;
 			while (true)
 			{
-				Console.Write("Please, write your username: ");
-				username = Console.ReadLine();
+				consoleWrapper.SendOutput("Please, write your username: ");
+				username = consoleWrapper.ReadInput();
 
 				if (!string.IsNullOrEmpty(username) && usernamePattern.IsMatch(username))
 					break;
 
-				Console.WriteLine("Invalid username!");
+				consoleWrapper.SendOutput("Invalid username!");
 			}
 
 			Client = clientFactory.CreateClientWebSocket(port, username);
@@ -44,12 +48,12 @@ namespace VoiceModFleckExercise.Services
 		private void RunClient()
 		{
 			SendMessage($"[{DateTime.Now:HH:mm:ss}] - {Client.Username} has logged in!", false);
-			Console.WriteLine(@"Type !exit to quit...");
+			consoleWrapper.SendOutput(@"Type !exit to quit...");
 
 			while (true)
 			{
 				Console.Write($"{Client.Username}: ");
-				var userInput = Console.ReadLine();
+				var userInput = consoleWrapper.ReadInput();
 
 				if (userInput == "!exit")
 				{
@@ -61,7 +65,7 @@ namespace VoiceModFleckExercise.Services
 						task.Dispose();
 					}
 					Client.TokenSource.Dispose();
-					Console.WriteLine("WebSocket disconnected.");
+					consoleWrapper.SendOutput("WebSocket disconnected.");
 					return;
 				}
 
@@ -85,7 +89,7 @@ namespace VoiceModFleckExercise.Services
 
 			task.Wait(Client.TokenSource.Token); 
 			task.Dispose();
-			Console.WriteLine($"{message}");
+			consoleWrapper.SendOutput($"{message}");
 		}
 	}
 }

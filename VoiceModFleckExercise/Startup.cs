@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using VoiceModFleckExercise.Factories;
 using VoiceModFleckExercise.Services;
-
+using VoiceModFleckExercise.Wrappers;
 using LogLevel = Fleck.LogLevel;
 
 namespace VoiceModFleckExercise
@@ -57,6 +57,8 @@ namespace VoiceModFleckExercise
 			services.AddTransient<IServerService, ServerService>();
 			services.AddTransient<IClientService, ClientService>();
 			services.AddTransient<MainService>();
+
+			services.AddTransient<IConsoleWrapper, ConsoleWrapper>();
 		}
 	}
 }
