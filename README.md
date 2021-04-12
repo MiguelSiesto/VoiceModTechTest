@@ -1,7 +1,7 @@
 # VoiceModTechTest
 Test for the application in VoiceMod.
 
-# Patterns and architecture used:
+## Patterns and architecture used:
 I have used native Dependency injections, Fleck and log4net packages, besides some Microsoft.Extensions for the configuration and Dependency Injections.
 The solution uses Services as the main approach, one main service determines whether to use Client or Server services.
 
