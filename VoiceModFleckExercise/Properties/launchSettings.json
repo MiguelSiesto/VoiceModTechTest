@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VoiceModFleckExercise": {
+      "commandName": "Project",
+      "commandLineArgs": "8181"
+    }
+  }
+}

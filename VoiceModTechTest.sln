@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoiceModFleckExercise", "VoiceModFleckExercise\VoiceModFleckExercise.csproj", "{1A9402E1-2547-4F95-B294-92398BED7489}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoiceModFleckExercise.Test", "VoiceModFleckExercise.Test\VoiceModFleckExercise.Test.csproj", "{E4F47523-C930-44CE-ACA8-4071DBD8FD41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A9402E1-2547-4F95-B294-92398BED7489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9402E1-2547-4F95-B294-92398BED7489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9402E1-2547-4F95-B294-92398BED7489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9402E1-2547-4F95-B294-92398BED7489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F47523-C930-44CE-ACA8-4071DBD8FD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F47523-C930-44CE-ACA8-4071DBD8FD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F47523-C930-44CE-ACA8-4071DBD8FD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F47523-C930-44CE-ACA8-4071DBD8FD41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3157DC79-DE23-459A-8D5F-7751B290D9F9}
+	EndGlobalSection
+EndGlobal
